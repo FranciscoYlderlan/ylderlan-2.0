@@ -103,11 +103,11 @@ export const pt: Translation = {
   about: {
     command: 'cat ~/about.md',
     paragraphs: [
-      'Trabalho com software **desde 2018**, passando por front, back e infraestrutura.',
-      'Sou **curioso** e gosto de problema difícil. Aprender coisa nova é a parte que mais gosto no trabalho.',
-      'Gosto de **trabalhar em time**. Pergunto quando não sei e ajudo quando dá.',
-      'Nascido em São Luís, no Maranhão, formado em Ciência da Computação pela **UFMA**. Hoje moro em São Paulo 🇧🇷.',
-      'Meu foco hoje é construir **sistemas internos e automação com IA**. 🚀',
+      'Trabalho com software **desde 2018** e me movo com facilidade entre front, back e infraestrutura.',
+      'Busco aprender alguma coisa **todo dia**, e uma forma melhor de resolver as coisas.',
+      'Acredito que todo problema tem uma saída. Nem sempre sei a resposta na hora, mas sei que **encontro o caminho**.',
+      'Assumo o que construo: cuido da qualidade e **cumpro o que combino**, mesmo quando o escopo muda no meio.',
+      'Gosto de **ajudar as pessoas** e de somar ao time. Quero que saibam que podem contar comigo.',
     ],
   },
   experience: {

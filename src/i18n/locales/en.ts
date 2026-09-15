@@ -99,11 +99,11 @@ export const en: Translation = {
   about: {
     command: 'cat ~/about.md',
     paragraphs: [
-      "I've worked with software **since 2018**, across frontend, backend and infrastructure.",
-      "I'm **curious** and I like a hard problem. Learning something new is my favourite part of the job.",
-      "I like **working on a team**. I ask when I don't know and I help when I can.",
-      'Born in São Luís, Maranhão, with a Computer Science degree from **UFMA**. These days I live in São Paulo 🇧🇷.',
-      'Right now my focus is **internal systems and AI automation**. 🚀',
+      "I've worked with software **since 2018**, and I move easily between frontend, backend and infrastructure.",
+      'I look for something to **learn every day**, and for a better way to solve things.',
+      "I believe every problem has a way through it. I may not know the answer right away, but I know I'll **find a path**.",
+      'I take ownership of what I build: I watch the quality and I **follow through on what I promise**, even when the scope shifts.',
+      'I like **helping people** and adding value to the team. I want them to know they can count on me.',
     ],
   },
   experience: {
