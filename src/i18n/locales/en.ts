@@ -198,6 +198,7 @@ export const en: Translation = {
           'Docker',
           'Linux',
         ],
+        tag: 'research scholarship',
         note: 'In partnership with Equatorial Energia.',
       },
     ],

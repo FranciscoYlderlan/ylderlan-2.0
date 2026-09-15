@@ -7,6 +7,8 @@ export type ExperienceItem = {
   location: string
   bullets: string[]
   stack: string[]
+  /** Short qualifier shown beside the title, e.g. a research scholarship. */
+  tag?: string
   note?: string
 }
 

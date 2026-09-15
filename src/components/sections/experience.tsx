@@ -61,14 +61,17 @@ function ExperienceDetail({ item }: { item: ExperienceItem }) {
 
   return (
     <article className="flex flex-col gap-4">
-      <header className="flex flex-col gap-1">
-        <h3 className="text-foreground text-sm font-semibold">
-          {item.role}{' '}
-          <span className="text-muted-foreground font-normal">
-            {t('experience.at')}
-          </span>{' '}
-          <span className="text-mint">{item.company}</span>
-        </h3>
+      <header className="flex flex-col gap-1.5">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1.5">
+          <h3 className="text-foreground text-sm font-semibold">
+            {item.role}{' '}
+            <span className="text-muted-foreground font-normal">
+              {t('experience.at')}
+            </span>{' '}
+            <span className="text-mint">{item.company}</span>
+          </h3>
+          {item.tag ? <Badge tone="amber">{item.tag}</Badge> : null}
+        </div>
         <p className="text-muted-foreground text-[11px]">
           {item.period} · {item.location}
         </p>
