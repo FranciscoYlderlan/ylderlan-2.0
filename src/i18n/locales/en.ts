@@ -47,6 +47,10 @@ export const en: Translation = {
     empty: 'No public repositories yet.',
     noDescription: 'No description yet.',
     stars_one: '{{count}} star',
+    details: 'Details',
+    detailsFor: 'Details about {{name}}',
+    updated: 'Last push',
+    openOnGitHub: 'Open on GitHub',
     stars_other: '{{count}} stars',
   },
   stack: {

@@ -25,7 +25,7 @@ function payload(count: number) {
 }
 
 describe('<Projects />', () => {
-  it('shows at most five repositories once loaded', async () => {
+  it('shows at most four repositories once loaded', async () => {
     vi.stubGlobal(
       'fetch',
       vi.fn().mockResolvedValue({ ok: true, json: async () => payload(9) }),
@@ -37,7 +37,32 @@ describe('<Projects />', () => {
       expect(screen.getByText('project-1')).toBeInTheDocument()
     })
 
-    expect(screen.getAllByRole('listitem')).toHaveLength(5)
+    expect(screen.getAllByRole('listitem')).toHaveLength(4)
+  })
+
+  it('keeps the description in the details popover, not on the card', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({ ok: true, json: async () => payload(2) }),
+    )
+
+    const user = userEvent.setup()
+    render(<Projects />)
+
+    await waitFor(() => {
+      expect(screen.getByText('project-1')).toBeInTheDocument()
+    })
+
+    // The card stays compact: no description until the popover is opened.
+    expect(screen.queryByText('Description 1.')).not.toBeInTheDocument()
+
+    await user.click(
+      screen.getByRole('button', {
+        name: en.projects.detailsFor.replace('{{name}}', 'project-1'),
+      }),
+    )
+
+    expect(await screen.findByText('Description 1.')).toBeInTheDocument()
   })
 
   it('falls back to a placeholder when a repository has no description', async () => {
@@ -46,11 +71,22 @@ describe('<Projects />', () => {
       vi.fn().mockResolvedValue({ ok: true, json: async () => payload(1) }),
     )
 
+    const user = userEvent.setup()
     render(<Projects />)
 
     await waitFor(() => {
-      expect(screen.getByText(en.projects.noDescription)).toBeInTheDocument()
+      expect(screen.getByText('project-0')).toBeInTheDocument()
     })
+
+    await user.click(
+      screen.getByRole('button', {
+        name: en.projects.detailsFor.replace('{{name}}', 'project-0'),
+      }),
+    )
+
+    expect(
+      await screen.findByText(en.projects.noDescription),
+    ).toBeInTheDocument()
   })
 
   it('always links to the full repository list', () => {

@@ -64,6 +64,10 @@ export type Translation = {
     noDescription: string
     stars_one: string
     stars_other: string
+    details: string
+    detailsFor: string
+    updated: string
+    openOnGitHub: string
   }
   stack: {
     command: string
