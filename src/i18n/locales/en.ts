@@ -22,8 +22,7 @@ export const en: Translation = {
     profileFile: '~/profile.json',
     profile: [
       { key: 'role', value: 'Software Engineer · Full-Stack', type: 'string' },
-      { key: 'company', value: 'TM Mentoring', type: 'string' },
-      { key: 'since', value: '2018', type: 'number' },
+      { key: 'since', value: '2022', type: 'number' },
       { key: 'based_in', value: 'São Paulo, BR', type: 'string' },
       { key: 'status', value: 'open to opportunities', type: 'string' },
     ],
@@ -99,7 +98,7 @@ export const en: Translation = {
   about: {
     command: 'cat ~/about.md',
     paragraphs: [
-      "I've worked with software **since 2018**, and I move easily between frontend, backend and infrastructure.",
+      "I've worked with software **since 2022**, and I move easily between frontend, backend and infrastructure.",
       'I look for something to **learn every day**, and for a better way to solve things.',
       "I believe every problem has a way through it. I may not know the answer right away, but I know I'll **find a path**.",
       'I take ownership of what I build: I watch the quality and I **follow through on what I promise**, even when the scope shifts.',
@@ -114,7 +113,7 @@ export const en: Translation = {
         id: 'tm-mentoring',
         company: 'TM Mentoring',
         role: 'Software Engineer',
-        period: 'FEB 2025 → PRESENT',
+        period: 'FEB 2025 → SEP 2026',
         location: 'Remote · Recife, PE',
         bullets: [
           'Refactored and modernised the legacy job-search scripts, lifting mentee job acquisition by **900%**.',

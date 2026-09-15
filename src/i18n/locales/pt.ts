@@ -26,8 +26,7 @@ export const pt: Translation = {
         value: 'Engenheiro de Software · Full-Stack',
         type: 'string',
       },
-      { key: 'company', value: 'TM Mentoring', type: 'string' },
-      { key: 'since', value: '2018', type: 'number' },
+      { key: 'since', value: '2022', type: 'number' },
       { key: 'based_in', value: 'São Paulo, BR', type: 'string' },
       { key: 'status', value: 'aberto a oportunidades', type: 'string' },
     ],
@@ -103,7 +102,7 @@ export const pt: Translation = {
   about: {
     command: 'cat ~/about.md',
     paragraphs: [
-      'Trabalho com software **desde 2018** e me movo com facilidade entre front, back e infraestrutura.',
+      'Trabalho com software **desde 2022** e me movo com facilidade entre front, back e infraestrutura.',
       'Busco aprender alguma coisa **todo dia**, e uma forma melhor de resolver as coisas.',
       'Acredito que todo problema tem uma saída. Nem sempre sei a resposta na hora, mas sei que **encontro o caminho**.',
       'Assumo o que construo: cuido da qualidade e **cumpro o que combino**, mesmo quando o escopo muda no meio.',
@@ -118,7 +117,7 @@ export const pt: Translation = {
         id: 'tm-mentoring',
         company: 'TM Mentoring',
         role: 'Engenheiro de Software',
-        period: 'FEV 2025 → ATUAL',
+        period: 'FEV 2025 → SET 2026',
         location: 'Remoto · Recife, PE',
         bullets: [
           'Refatorei e modernizei os scripts legados de busca de vagas e aumentei em **900%** as contratações dos mentorados.',
