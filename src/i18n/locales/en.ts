@@ -2,9 +2,9 @@ import type { Translation } from '../types'
 
 export const en: Translation = {
   meta: {
-    title: 'Ylderlan — Full-Stack Software Engineer',
+    title: 'Ylderlan · Full-Stack Software Engineer',
     description:
-      'I design and ship software end to end — frontend, backend, cloud and the automation layer in between. Based in São Paulo, Brazil.',
+      'Software engineer working across frontend, backend, cloud and the automation layer in between. Based in São Paulo, Brazil.',
   },
   a11y: {
     skipToContent: 'Skip to content',
@@ -99,10 +99,11 @@ export const en: Translation = {
   about: {
     command: 'cat ~/about.md',
     paragraphs: [
-      "I'm a full-stack software engineer. I move between frontend, backend and infrastructure comfortably, and that **whole-system view** is what helps me find where a problem actually lives — not just where it shows up.",
-      "**I own what I ship.** I keep deadlines, take every task seriously, and I would rather flag something early than surprise anyone late. It does not fit on a CV, but it shows up every day.",
-      'I am good to work with: I ask when I do not know, help when I can, and usually bring another route when the current one stalls. **Learning something new** is the part I enjoy most, so shifting scope does not rattle me.',
-      "I'm from São Luís, in Maranhão, with a **Computer Science** degree from UFMA. These days I live in São Paulo.",
+      "I've worked with software **since 2018**, across frontend, backend and infrastructure.",
+      "I'm **curious** and I like a hard problem. Learning something new is my favourite part of the job.",
+      "I like **working on a team**. I ask when I don't know and I help when I can.",
+      'Born in São Luís, Maranhão, with a Computer Science degree from **UFMA**. These days I live in São Paulo 🇧🇷.',
+      'Right now my focus is **internal systems and AI automation**. 🚀',
     ],
   },
   experience: {
@@ -141,7 +142,7 @@ export const en: Translation = {
         location: 'Remote · Florianópolis, SC',
         bullets: [
           'Designed the foundational architecture for a volunteer-recruitment platform, shaped to scale as the team grew.',
-          'Introduced structured Discovery and Delivery with explicit DoR and DoD — turning delivery predictability into a process, not a hope.',
+          'Introduced structured Discovery and Delivery with explicit DoR and DoD, turning delivery predictability into a process rather than a hope.',
           'Ran the cycle on Scrum and Kanban, aligning communication from kickoff to release.',
         ],
         stack: [
@@ -157,7 +158,7 @@ export const en: Translation = {
       },
       {
         id: 'saude-publica-ma',
-        company: 'Public Health Dept. — MA',
+        company: 'Public Health Dept. · MA',
         role: 'Freelance Software Engineer',
         period: 'OCT 2023 → SEP 2024',
         location: 'Hybrid · São Luís, MA',
@@ -179,7 +180,7 @@ export const en: Translation = {
       },
       {
         id: 'nca-ufma',
-        company: 'NCA — UFMA',
+        company: 'NCA · UFMA',
         role: 'Research & Development Engineer',
         period: 'OCT 2018 → APR 2022',
         location: 'On-site · São Luís, MA',
@@ -205,6 +206,6 @@ export const en: Translation = {
   footer: {
     builtWith: 'Built with React, TypeScript, Tailwind CSS and shadcn/ui.',
     rights: '© Francisco Ylderlan. All rights reserved.',
-    exit: 'exit 0 — thanks for reading the logs.',
+    exit: 'exit 0. Thanks for reading the logs.',
   },
 }

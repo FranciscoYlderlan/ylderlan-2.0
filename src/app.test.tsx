@@ -7,8 +7,17 @@ import i18n from '@/i18n'
 import { en } from '@/i18n/locales/en'
 import { pt } from '@/i18n/locales/pt'
 
-/** Drops the markdown-lite emphasis markers so the text matches the DOM. */
-const strip = (value: string) => value.replace(/\*\*/g, '').slice(0, 40)
+/**
+ * Matches the element whose own text is exactly this string once the
+ * markdown-lite emphasis markers are dropped. RichText turns `**x**` into a
+ * <strong>, which splits the sentence across nodes and defeats a plain string
+ * matcher.
+ */
+const richText = (value: string) => {
+  const expected = value.replace(/\*\*/g, '')
+  return (_content: string, element: Element | null) =>
+    element?.textContent === expected
+}
 
 beforeEach(() => {
   vi.stubGlobal(
@@ -65,9 +74,7 @@ describe('<App />', () => {
 
     await waitFor(() => {
       expect(
-        screen.getByText(pt.about.paragraphs[0].replace(/\*\*/g, '').slice(0, 30), {
-          exact: false,
-        }),
+        screen.getByText(richText(pt.about.paragraphs[0])),
       ).toBeInTheDocument()
     })
 
@@ -83,12 +90,12 @@ describe('<App />', () => {
 
     const [first, second] = en.experience.items
 
-    expect(screen.getByText(strip(first.bullets[0]), { exact: false })).toBeInTheDocument()
+    expect(screen.getByText(richText(first.bullets[0]))).toBeInTheDocument()
 
     await user.click(screen.getByRole('tab', { name: second.company }))
 
     await waitFor(() => {
-      expect(screen.getByText(strip(second.bullets[0]), { exact: false })).toBeInTheDocument()
+      expect(screen.getByText(richText(second.bullets[0]))).toBeInTheDocument()
     })
   })
 })

@@ -2,9 +2,9 @@ import type { Translation } from '../types'
 
 export const pt: Translation = {
   meta: {
-    title: 'Ylderlan — Engenheiro de Software Full-Stack',
+    title: 'Ylderlan · Engenheiro de Software Full-Stack',
     description:
-      'Desenho e entrego software de ponta a ponta — front, back, cloud e a camada de automação no meio do caminho. Em São Paulo, Brasil.',
+      'Engenheiro de software que transita entre front, back, cloud e a camada de automação no meio do caminho. Em São Paulo, Brasil.',
   },
   a11y: {
     skipToContent: 'Pular para o conteúdo',
@@ -103,10 +103,11 @@ export const pt: Translation = {
   about: {
     command: 'cat ~/about.md',
     paragraphs: [
-      'Sou engenheiro de software full stack. Transito entre front, back e infraestrutura com naturalidade, e é essa **visão do sistema inteiro** que me ajuda a enxergar onde o problema realmente está — não só onde ele aparece.',
-      '**Assumo o que entrego.** Cumpro prazo, trato cada tarefa com seriedade e prefiro avisar cedo a surpreender tarde. É o tipo de coisa que não cabe no currículo, mas aparece todo dia.',
-      'Sou bom de time: pergunto quando não sei, ajudo quando dá e costumo trazer um outro caminho quando o atual empaca. **Aprender coisa nova** é a parte que eu mais gosto, então escopo que muda não me tira do sério.',
-      'Sou de São Luís, no Maranhão, formado em **Ciência da Computação** pela UFMA. Hoje moro em São Paulo.',
+      'Trabalho com software **desde 2018**, passando por front, back e infraestrutura.',
+      'Sou **curioso** e gosto de problema difícil. Aprender coisa nova é a parte que mais gosto no trabalho.',
+      'Gosto de **trabalhar em time**. Pergunto quando não sei e ajudo quando dá.',
+      'Nascido em São Luís, no Maranhão, formado em Ciência da Computação pela **UFMA**. Hoje moro em São Paulo 🇧🇷.',
+      'Meu foco hoje é construir **sistemas internos e automação com IA**. 🚀',
     ],
   },
   experience: {
@@ -145,7 +146,7 @@ export const pt: Translation = {
         location: 'Remoto · Florianópolis, SC',
         bullets: [
           'Desenhei a arquitetura base de uma plataforma de recrutamento de voluntários, pensada pra escalar junto com o time.',
-          'Trouxe Discovery e Delivery estruturados, com DoR e DoD explícitos — previsibilidade de entrega virou processo, não esperança.',
+          'Trouxe Discovery e Delivery estruturados, com DoR e DoD explícitos. Previsibilidade de entrega virou processo, não esperança.',
           'Conduzi o ciclo com Scrum e Kanban, alinhando a comunicação do kickoff até a release.',
         ],
         stack: [
@@ -161,7 +162,7 @@ export const pt: Translation = {
       },
       {
         id: 'saude-publica-ma',
-        company: 'Saúde Pública — MA',
+        company: 'Saúde Pública · MA',
         role: 'Engenheiro de Software Freelancer',
         period: 'OUT 2023 → SET 2024',
         location: 'Híbrido · São Luís, MA',
@@ -183,7 +184,7 @@ export const pt: Translation = {
       },
       {
         id: 'nca-ufma',
-        company: 'NCA — UFMA',
+        company: 'NCA · UFMA',
         role: 'Engenheiro de Pesquisa e Desenvolvimento',
         period: 'OUT 2018 → ABR 2022',
         location: 'Presencial · São Luís, MA',
@@ -209,6 +210,6 @@ export const pt: Translation = {
   footer: {
     builtWith: 'Feito com React, TypeScript, Tailwind CSS e shadcn/ui.',
     rights: '© Francisco Ylderlan. Todos os direitos reservados.',
-    exit: 'exit 0 — obrigado por ler os logs.',
+    exit: 'exit 0. Obrigado por ler os logs.',
   },
 }
