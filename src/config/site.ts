@@ -5,7 +5,7 @@ export const siteConfig = {
   fullName: 'Francisco Ylderlan',
   url: 'https://ylderlan.vercel.app',
   ogImage: '/og-image.png',
-  email: 'franciscoylderlanoliveira@gmail.com',
+  email: 'franciscoylderlan@gmail.com',
   links: {
     github: `https://github.com/${GITHUB_USERNAME}`,
     githubRepositories: `https://github.com/${GITHUB_USERNAME}?tab=repositories`,
