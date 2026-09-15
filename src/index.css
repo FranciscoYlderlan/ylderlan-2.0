@@ -1,1 +1,180 @@
 @import 'tailwindcss';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+  Palette adapted from GitHub's light and dark themes.
+  Light mode never uses pure white — it leans cream/grey.
+  Dark mode never uses pure black — it leans navy.
+  The amber accent carries over the gold from the original YL monogram.
+*/
+:root {
+  --radius: 0.625rem;
+
+  --background: #f3f0e8;
+  --foreground: #1c1b17;
+
+  --card: #faf8f2;
+  --card-foreground: #1c1b17;
+
+  --popover: #faf8f2;
+  --popover-foreground: #1c1b17;
+
+  --primary: #8a5a00;
+  --primary-foreground: #fff9ea;
+
+  --secondary: #e9e4d8;
+  --secondary-foreground: #2c2a24;
+
+  --muted: #e9e4d8;
+  --muted-foreground: #635f53;
+
+  --accent: #e9e4d8;
+  --accent-foreground: #1c1b17;
+
+  --destructive: #a5271f;
+  --destructive-foreground: #fff9ea;
+
+  --border: #cfc8b3;
+  --input: #cfc8b3;
+  --ring: #8a5a00;
+
+  /* Brand */
+  --brand: #8a5a00;
+  --brand-contrast: #e6b325;
+  --brand-sage: #6f7059;
+  --highlight: #8a5a00;
+
+  /* Company accents — one per highlighted employer. */
+  --accent-1: #b0442a;
+  --accent-2: #2b7355;
+  --accent-3: #2a5fa3;
+  --accent-4: #8a5a00;
+}
+
+.dark {
+  --background: #0e1526;
+  --foreground: #e4eaf5;
+
+  --card: #141d33;
+  --card-foreground: #e4eaf5;
+
+  --popover: #141d33;
+  --popover-foreground: #e4eaf5;
+
+  --primary: #f0be3f;
+  --primary-foreground: #1a1405;
+
+  --secondary: #1b2742;
+  --secondary-foreground: #e4eaf5;
+
+  --muted: #1b2742;
+  --muted-foreground: #9dabc6;
+
+  --accent: #1b2742;
+  --accent-foreground: #e4eaf5;
+
+  --destructive: #ef8b84;
+  --destructive-foreground: #1a1405;
+
+  --border: #2e3c60;
+  --input: #2e3c60;
+  --ring: #f0be3f;
+
+  /* Brand */
+  --brand: #f0be3f;
+  --brand-contrast: #f0be3f;
+  --brand-sage: #a2a28b;
+  --highlight: #f0be3f;
+
+  /* Company accents — one per highlighted employer. */
+  --accent-1: #ff9276;
+  --accent-2: #63d6a3;
+  --accent-3: #7db4f7;
+  --accent-4: #f0be3f;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-brand: var(--brand);
+  --color-brand-contrast: var(--brand-contrast);
+  --color-brand-sage: var(--brand-sage);
+  --color-highlight: var(--highlight);
+  --color-accent-1: var(--accent-1);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --color-accent-4: var(--accent-4);
+
+  --font-mono:
+    'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
+    monospace;
+  --font-display: 'Exo 2', 'JetBrains Mono', ui-monospace, monospace;
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/60;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    color-scheme: light;
+  }
+
+  html.dark {
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-background text-foreground font-mono antialiased;
+    font-feature-settings: 'liga' 1, 'calt' 1;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--brand-contrast);
+    color: #1a1405;
+  }
+
+  :focus-visible {
+    @apply outline-ring outline-2 outline-offset-2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
