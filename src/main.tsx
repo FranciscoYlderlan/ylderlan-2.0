@@ -1,8 +1,12 @@
-import { StrictMode } from 'react'
+import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
+
+import '@fontsource-variable/jetbrains-mono'
+import '@fontsource/exo-2/600.css'
 
 import { App } from '@/app'
 
+import '@/i18n'
 import './index.css'
 
 const rootElement = document.getElementById('root')
@@ -13,6 +17,8 @@ if (!rootElement) {
 
 createRoot(rootElement).render(
   <StrictMode>
-    <App />
+    <Suspense fallback={null}>
+      <App />
+    </Suspense>
   </StrictMode>,
 )
