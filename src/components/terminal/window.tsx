@@ -11,10 +11,15 @@ export function TerminalWindow({
   children,
   className,
   bodyClassName,
+  /** Set when the body scrolls sideways, so keyboard users can reach it. */
+  scrollable = false,
+  scrollLabel,
   ...props
 }: Omit<ComponentProps<'div'>, 'title'> & {
   title: ReactNode
   bodyClassName?: string
+  scrollable?: boolean
+  scrollLabel?: string
 }) {
   return (
     <div
@@ -34,7 +39,12 @@ export function TerminalWindow({
           {title}
         </span>
       </div>
-      <div className={cn('p-4 text-xs leading-relaxed', bodyClassName)}>
+      <div
+        className={cn('p-4 text-xs leading-relaxed', bodyClassName)}
+        {...(scrollable
+          ? { tabIndex: 0, role: 'region', 'aria-label': scrollLabel }
+          : {})}
+      >
         {children}
       </div>
     </div>

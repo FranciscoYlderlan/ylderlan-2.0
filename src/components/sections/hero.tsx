@@ -69,6 +69,8 @@ export function Hero() {
         title={t('hero.profileFile')}
         className="mt-6"
         bodyClassName="overflow-x-auto"
+        scrollable
+        scrollLabel={t('hero.profileFile')}
       >
         <pre className="text-[11px] leading-6 sm:text-xs">
           <code>

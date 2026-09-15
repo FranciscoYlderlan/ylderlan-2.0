@@ -8,7 +8,7 @@ export function Footer() {
   return (
     <footer className="border-border mt-4 border-t py-10">
       <div className="text-muted-foreground flex flex-col items-center gap-3 text-center text-[11px] leading-relaxed">
-        <LogoBadge className="size-7 rounded-md" />
+        <LogoBadge className="border-border size-8 rounded-md border" />
         <p className="text-prompt">{t('footer.exit')}</p>
         <p>{t('footer.builtWith')}</p>
         <p>{t('footer.rights')}</p>
