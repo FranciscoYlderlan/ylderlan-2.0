@@ -140,7 +140,7 @@ export const en: Translation = {
         period: 'APR 2023 → JAN 2025',
         location: 'Remote · Florianópolis, SC',
         bullets: [
-          'Contributed to the Lab Yes! architecture, which brought in **100%** of the volunteers and supported their professional development and the building of the software systems.',
+          'Contributed to the Lab Yes! architecture, which helped bring in **100%** of the volunteers and supported their professional development and the building of the software systems.',
           'Raised delivery predictability by **25%** by setting clear scopes and acceptance criteria through Discovery and Delivery.',
           'Improved team satisfaction by proposing Scrum and Kanban and helping put them in place, smoothing the workflow.',
         ],
