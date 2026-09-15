@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="YL">
+  <title>YL</title>
+  <g fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+    <path d="M8.4 9.2 16 17.2" stroke="#e4eaf5"/>
+    <path d="M23.6 9.2 16 17.2" stroke="#e4eaf5"/>
+    <path d="M16 17.2v6.6h6.6" stroke="#f0be3f"/>
+  </g>
+</svg>
