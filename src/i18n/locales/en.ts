@@ -99,10 +99,10 @@ export const en: Translation = {
   about: {
     command: 'cat ~/about.md',
     paragraphs: [
-      'I design and ship software **end to end** — frontend, backend, cloud and the automation layer in between.',
-      "Most of my work starts the same way: a manual, expensive process that shouldn't exist anymore. I replace it with something **reliable, measurable and maintainable**.",
-      'I started in **2018**, at a research lab at UFMA, wrangling Big Data and ETL pipelines for the power sector. That is where I learned to enjoy a hard problem.',
-      'I hold a **Computer Science** degree from UFMA. Born in São Luís, Maranhão — these days I live in **São Paulo**.',
+      "I'm a full-stack software engineer. I move between frontend, backend and infrastructure comfortably, and that **whole-system view** is what helps me find where a problem actually lives — not just where it shows up.",
+      "**I own what I ship.** I keep deadlines, take every task seriously, and I would rather flag something early than surprise anyone late. It does not fit on a CV, but it shows up every day.",
+      'I am good to work with: I ask when I do not know, help when I can, and usually bring another route when the current one stalls. **Learning something new** is the part I enjoy most, so shifting scope does not rattle me.',
+      "I'm from São Luís, in Maranhão, with a **Computer Science** degree from UFMA. These days I live in São Paulo.",
     ],
   },
   experience: {
