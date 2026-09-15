@@ -227,3 +227,56 @@
     display: none;
   }
 }
+
+/* Marquee rows: the track is rendered twice, so travelling one full copy
+   width brings the second copy exactly where the first began. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-reverse {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee {
+  animation: marquee linear infinite;
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse linear infinite;
+}
+
+/* Pause is declared here, next to the animation itself: these rules sit
+   outside Tailwind's layers, so an `animation-play-state` utility would lose
+   to the `animation` shorthand above no matter how specific it is. */
+.marquee:hover .animate-marquee,
+.marquee:hover .animate-marquee-reverse,
+.marquee:focus-within .animate-marquee,
+.marquee:focus-within .animate-marquee-reverse {
+  animation-play-state: paused;
+}
+
+/* Anyone who asked for reduced motion gets the plain static list instead. */
+.marquee-fallback {
+  display: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee {
+    display: none;
+  }
+
+  .marquee-fallback {
+    display: flex;
+  }
+}
