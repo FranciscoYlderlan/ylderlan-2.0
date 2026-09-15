@@ -7,6 +7,9 @@ import i18n from '@/i18n'
 import { en } from '@/i18n/locales/en'
 import { pt } from '@/i18n/locales/pt'
 
+/** Drops the markdown-lite emphasis markers so the text matches the DOM. */
+const strip = (value: string) => value.replace(/\*\*/g, '').slice(0, 40)
+
 beforeEach(() => {
   vi.stubGlobal(
     'fetch',
@@ -21,14 +24,18 @@ describe('<App />', () => {
     const main = screen.getByRole('main')
     expect(main).toBeInTheDocument()
 
-    for (const title of [
-      en.projects.title,
-      en.social.title,
-      en.about.title,
-      en.experience.title,
+    for (const command of [
+      en.projects.command,
+      en.stack.command,
+      en.social.command,
+      en.about.command,
+      en.experience.command,
     ]) {
       expect(
-        within(main).getByRole('heading', { level: 2, name: title }),
+        within(main).getByRole('heading', {
+          level: 2,
+          name: new RegExp(command.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')),
+        }),
       ).toBeInTheDocument()
     }
   })
@@ -58,7 +65,9 @@ describe('<App />', () => {
 
     await waitFor(() => {
       expect(
-        screen.getByRole('heading', { level: 2, name: pt.about.title }),
+        screen.getByText(pt.about.paragraphs[0].replace(/\*\*/g, '').slice(0, 30), {
+          exact: false,
+        }),
       ).toBeInTheDocument()
     })
 
@@ -74,12 +83,12 @@ describe('<App />', () => {
 
     const [first, second] = en.experience.items
 
-    expect(screen.getByText(first.bullets[0])).toBeInTheDocument()
+    expect(screen.getByText(strip(first.bullets[0]), { exact: false })).toBeInTheDocument()
 
     await user.click(screen.getByRole('tab', { name: second.company }))
 
     await waitFor(() => {
-      expect(screen.getByText(second.bullets[0])).toBeInTheDocument()
+      expect(screen.getByText(strip(second.bullets[0]), { exact: false })).toBeInTheDocument()
     })
   })
 })

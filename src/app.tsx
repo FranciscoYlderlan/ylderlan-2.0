@@ -6,6 +6,7 @@ import { About } from '@/components/sections/about'
 import { Experience } from '@/components/sections/experience'
 import { Hero } from '@/components/sections/hero'
 import { Projects } from '@/components/sections/projects'
+import { Stack } from '@/components/sections/stack'
 import { Social } from '@/components/sections/social'
 import { useDocumentMetadata } from '@/hooks/use-document-metadata'
 import { ThemeProvider } from '@/providers/theme-provider'
@@ -26,15 +27,16 @@ function Page() {
 
       <Header />
 
-      <main id="main" className="mx-auto w-full max-w-2xl flex-1 px-5 sm:px-6">
+      <main id="main" className="mx-auto w-full max-w-3xl flex-1 px-5 sm:px-6">
         <Hero />
         <Projects />
+        <Stack />
         <Social />
         <About />
         <Experience />
       </main>
 
-      <div className="mx-auto w-full max-w-2xl px-5 sm:px-6">
+      <div className="mx-auto w-full max-w-3xl px-5 sm:px-6">
         <Footer />
       </div>
     </div>

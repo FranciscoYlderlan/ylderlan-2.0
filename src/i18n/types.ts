@@ -10,6 +10,19 @@ export type ExperienceItem = {
   note?: string
 }
 
+export type ProfileField = {
+  key: string
+  value: string
+  /** `string` renders quoted and mint, `number` bare and violet. */
+  type: 'string' | 'number'
+}
+
+export type StackGroup = {
+  id: string
+  label: string
+  items: string[]
+}
+
 export type Translation = {
   meta: {
     title: string
@@ -27,13 +40,22 @@ export type Translation = {
   hero: {
     greeting: string
     name: string
+    role: string
+    profileFile: string
+    profile: ProfileField[]
     companiesIntro: string
     companiesOutro: string
     listSeparator: string
     listLastSeparator: string
+    badgeLocation: string
+    badgeLocationValue: string
+    badgeFocus: string
+    badgeFocusValue: string
+    badgeStatus: string
+    badgeStatusValue: string
   }
   projects: {
-    title: string
+    command: string
     seeMore: string
     loading: string
     error: string
@@ -43,8 +65,14 @@ export type Translation = {
     stars_one: string
     stars_other: string
   }
+  stack: {
+    command: string
+    groups: StackGroup[]
+    aiLayerLabel: string
+    aiLayer: string
+  }
   social: {
-    title: string
+    command: string
     github: string
     githubHandle: string
     linkedin: string
@@ -53,17 +81,18 @@ export type Translation = {
     emailHandle: string
   }
   about: {
-    title: string
-    /** Markdown-lite: **bold** spans are rendered as highlighted text. */
+    command: string
+    /** Markdown-lite: `**span**` renders as highlighted text. */
     paragraphs: string[]
   }
   experience: {
-    title: string
+    command: string
     at: string
     items: ExperienceItem[]
   }
   footer: {
     builtWith: string
     rights: string
+    exit: string
   }
 }

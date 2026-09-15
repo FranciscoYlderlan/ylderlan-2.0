@@ -1,4 +1,4 @@
-import { ArrowUpRight, BriefcaseBusiness, GitBranch, Mail } from 'lucide-react'
+import { ArrowUpRight, GitBranch, Mail, UserRound } from 'lucide-react'
 import type { LucideIcon } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
@@ -11,6 +11,7 @@ type SocialLink = {
   icon: LucideIcon
   labelKey: string
   handleKey: string
+  tone: string
 }
 
 const links: SocialLink[] = [
@@ -20,13 +21,15 @@ const links: SocialLink[] = [
     icon: GitBranch,
     labelKey: 'social.github',
     handleKey: 'social.githubHandle',
+    tone: 'group-hover:text-mint',
   },
   {
     id: 'linkedin',
     href: siteConfig.links.linkedin,
-    icon: BriefcaseBusiness,
+    icon: UserRound,
     labelKey: 'social.linkedin',
     handleKey: 'social.linkedinHandle',
+    tone: 'group-hover:text-sky',
   },
   {
     id: 'email',
@@ -34,6 +37,7 @@ const links: SocialLink[] = [
     icon: Mail,
     labelKey: 'social.email',
     handleKey: 'social.emailHandle',
+    tone: 'group-hover:text-violet',
   },
 ]
 
@@ -41,9 +45,9 @@ export function Social() {
   const { t } = useTranslation()
 
   return (
-    <Section id="social" title={t('social.title')}>
+    <Section id="social" command={t('social.command')}>
       <ul className="grid gap-2 sm:grid-cols-3">
-        {links.map(({ id, href, icon: Icon, labelKey, handleKey }) => {
+        {links.map(({ id, href, icon: Icon, labelKey, handleKey, tone }) => {
           const external = !href.startsWith('mailto:')
 
           return (
@@ -53,17 +57,17 @@ export function Social() {
                 {...(external
                   ? { target: '_blank', rel: 'noreferrer noopener' }
                   : {})}
-                className="border-border bg-card hover:border-primary/40 group flex h-full items-center gap-3 rounded-lg border p-4 transition-colors sm:flex-col sm:items-start sm:gap-2"
+                className="border-border bg-card hover:border-mint/60 group flex h-full min-w-0 items-center gap-3 rounded-md p-3.5 transition-colors sm:flex-col sm:items-start sm:gap-2"
               >
                 <Icon
-                  className="text-muted-foreground group-hover:text-highlight size-5 shrink-0 transition-colors"
+                  className={`text-muted-foreground size-4 shrink-0 transition-colors ${tone}`}
                   aria-hidden="true"
                 />
-                <span className="flex min-w-0 flex-col">
-                  <span className="text-foreground flex items-center gap-1 text-sm font-medium">
+                <span className="flex min-w-0 flex-col gap-0.5">
+                  <span className="text-foreground flex items-center gap-1 text-xs font-semibold">
                     {t(labelKey)}
                     <ArrowUpRight
-                      className="text-muted-foreground group-hover:text-highlight size-3.5 transition-colors"
+                      className={`text-muted-foreground size-3 transition-colors ${tone}`}
                       aria-hidden="true"
                     />
                   </span>

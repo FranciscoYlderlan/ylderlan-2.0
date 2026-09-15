@@ -14,12 +14,12 @@ export const siteConfig = {
 } as const
 
 /**
- * Companies highlighted in the hero line. The accent colour is deliberately
- * token-based so both themes stay legible.
+ * Companies highlighted in the hero line. Each takes one of the terminal
+ * accents so the row reads like syntax highlighting rather than decoration.
  */
 export const featuredCompanies = [
-  { id: 'tm-mentoring', name: 'TM Mentoring', className: 'text-accent-1' },
-  { id: 'lab-yes', name: 'Lab Yes!', className: 'text-accent-2' },
-  { id: 'saude-publica-ma', name: 'Saúde Pública MA', className: 'text-accent-3' },
-  { id: 'nca-ufma', name: 'UFMA', className: 'text-accent-4' },
+  { id: 'tm-mentoring', name: 'TM Mentoring', className: 'text-mint' },
+  { id: 'lab-yes', name: 'Lab Yes!', className: 'text-sky' },
+  { id: 'saude-publica-ma', name: 'Saúde Pública MA', className: 'text-violet' },
+  { id: 'nca-ufma', name: 'UFMA', className: 'text-amber' },
 ] as const

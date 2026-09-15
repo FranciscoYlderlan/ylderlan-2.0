@@ -2,10 +2,11 @@ import { ArrowUpRight, RefreshCw, Star } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
 import { Section } from '@/components/layout/section'
-import { Button } from '@/components/ui/button'
+import { Button, buttonVariants } from '@/components/ui/button'
 import { Skeleton } from '@/components/ui/skeleton'
 import { siteConfig } from '@/config/site'
 import { useGitHubRepositories } from '@/hooks/use-github-repositories'
+import { cn } from '@/lib/utils'
 import type { Repository } from '@/services/github'
 
 const PROJECT_COUNT = 5
@@ -15,13 +16,13 @@ export function Projects() {
   const { repositories, status, retry } = useGitHubRepositories(PROJECT_COUNT)
 
   return (
-    <Section id="projects" title={t('projects.title')}>
+    <Section id="projects" command={t('projects.command')}>
       <div aria-live="polite" aria-busy={status === 'loading'}>
         {status === 'loading' ? <ProjectsSkeleton /> : null}
 
         {status === 'error' ? (
-          <div className="border-border bg-card flex flex-col items-start gap-3 rounded-lg border p-4">
-            <p className="text-muted-foreground text-sm">
+          <div className="border-border bg-card flex flex-col items-start gap-3 rounded-md border p-4">
+            <p className="text-muted-foreground text-xs">
               {t('projects.error')}
             </p>
             <Button variant="outline" size="sm" onClick={retry}>
@@ -32,7 +33,7 @@ export function Projects() {
         ) : null}
 
         {status === 'success' && repositories.length === 0 ? (
-          <p className="text-muted-foreground text-sm">{t('projects.empty')}</p>
+          <p className="text-muted-foreground text-xs">{t('projects.empty')}</p>
         ) : null}
 
         {status === 'success' && repositories.length > 0 ? (
@@ -45,20 +46,15 @@ export function Projects() {
       </div>
 
       <div className="mt-5">
-        <Button
-          variant="outline"
-          size="sm"
-          render={
-            <a
-              href={siteConfig.links.githubRepositories}
-              target="_blank"
-              rel="noreferrer noopener"
-            />
-          }
+        <a
+          href={siteConfig.links.githubRepositories}
+          target="_blank"
+          rel="noreferrer noopener"
+          className={cn(buttonVariants({ variant: 'outline', size: 'sm' }))}
         >
           {t('projects.seeMore')}
           <ArrowUpRight aria-hidden="true" />
-        </Button>
+        </a>
       </div>
     </Section>
   )
@@ -73,14 +69,17 @@ function ProjectCard({ repository }: { repository: Repository }) {
         href={repository.htmlUrl}
         target="_blank"
         rel="noreferrer noopener"
-        className="border-border bg-card hover:border-primary/40 group flex flex-col gap-1.5 rounded-lg border p-4 transition-colors"
+        className="border-border bg-card hover:border-mint/60 hover:bg-card group flex flex-col gap-2 rounded-md border p-4 transition-colors"
       >
         <span className="flex items-center justify-between gap-3">
-          <span className="text-foreground group-hover:text-highlight text-sm font-semibold transition-colors">
+          <span className="text-foreground group-hover:text-mint min-w-0 truncate text-sm font-semibold transition-colors">
+            <span className="text-prompt/60 mr-1.5 select-none" aria-hidden="true">
+              ▸
+            </span>
             {repository.name}
           </span>
           <ArrowUpRight
-            className="text-muted-foreground group-hover:text-highlight size-4 shrink-0 transition-colors"
+            className="text-muted-foreground group-hover:text-mint size-4 shrink-0 transition-colors"
             aria-hidden="true"
           />
         </span>
@@ -89,11 +88,11 @@ function ProjectCard({ repository }: { repository: Repository }) {
           {repository.description ?? t('projects.noDescription')}
         </span>
 
-        <span className="text-muted-foreground mt-1 flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px]">
+        <span className="text-muted-foreground flex flex-wrap items-center gap-x-4 gap-y-1 text-[11px]">
           {repository.language ? (
             <span className="flex items-center gap-1.5">
               <span
-                className="bg-brand-contrast size-2 rounded-full"
+                className="bg-mint size-1.5 rounded-full"
                 aria-hidden="true"
               />
               {repository.language}
@@ -117,7 +116,7 @@ function ProjectsSkeleton() {
       {Array.from({ length: PROJECT_COUNT }).map((_, index) => (
         <li
           key={index}
-          className="border-border bg-card flex flex-col gap-2 rounded-lg border p-4"
+          className="border-border bg-card flex flex-col gap-2 rounded-md border p-4"
         >
           <Skeleton className="h-4 w-32" />
           <Skeleton className="h-3 w-full" />

@@ -100,7 +100,7 @@ describe('<Projects />', () => {
     render(<Projects />)
 
     expect(
-      screen.getByRole('heading', { name: 'Hoje, eu construo coisas assim:' }),
+      screen.getByRole('heading', { name: /ls -la ~\/projects/ }),
     ).toBeInTheDocument()
 
     await i18n.changeLanguage('en')

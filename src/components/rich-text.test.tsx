@@ -18,7 +18,7 @@ describe('RichText', () => {
 
     const strong = screen.getByText('full stack engineer')
     expect(strong.tagName).toBe('STRONG')
-    expect(strong).toHaveClass('text-highlight')
+    expect(strong).toHaveClass('font-semibold')
   })
 
   it('never emits raw html from the translation string', () => {

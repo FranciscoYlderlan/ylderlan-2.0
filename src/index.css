@@ -3,95 +3,96 @@
 @custom-variant dark (&:where(.dark, .dark *));
 
 /*
-  Palette adapted from GitHub's light and dark themes.
-  Light mode never uses pure white — it leans cream/grey.
-  Dark mode never uses pure black — it leans navy.
-  The amber accent carries over the gold from the original YL monogram.
+  Terminal identity, carried over from the GitHub profile README:
+  a #0d1117 canvas, mint as the prompt colour, violet and sky as the
+  secondary accents, monospace everywhere.
+
+  Dark is the native mode. Light is the same terminal in a cream
+  paper theme — never pure white, never pure black.
 */
 :root {
-  --radius: 0.625rem;
+  --radius: 0.375rem;
 
-  --background: #f3f0e8;
-  --foreground: #1c1b17;
+  --background: #f4f2ea;
+  --foreground: #16181d;
 
-  --card: #faf8f2;
-  --card-foreground: #1c1b17;
+  --card: #fbf9f3;
+  --card-foreground: #16181d;
 
-  --popover: #faf8f2;
-  --popover-foreground: #1c1b17;
+  --popover: #fbf9f3;
+  --popover-foreground: #16181d;
 
-  --primary: #8a5a00;
-  --primary-foreground: #fff9ea;
+  --primary: #03744f;
+  --primary-foreground: #f4fffb;
 
-  --secondary: #e9e4d8;
-  --secondary-foreground: #2c2a24;
+  --secondary: #e9e5d9;
+  --secondary-foreground: #16181d;
 
-  --muted: #e9e4d8;
-  --muted-foreground: #635f53;
+  --muted: #e9e5d9;
+  --muted-foreground: #5c6068;
 
-  --accent: #e9e4d8;
-  --accent-foreground: #1c1b17;
+  --accent: #e9e5d9;
+  --accent-foreground: #16181d;
 
-  --destructive: #a5271f;
-  --destructive-foreground: #fff9ea;
+  --destructive: #b3261e;
+  --destructive-foreground: #f4fffb;
 
-  --border: #cfc8b3;
-  --input: #cfc8b3;
-  --ring: #8a5a00;
+  --border: #d9d3c4;
+  --input: #d9d3c4;
+  --ring: #03744f;
 
-  /* Brand */
-  --brand: #8a5a00;
-  --brand-contrast: #e6b325;
-  --brand-sage: #6f7059;
-  --highlight: #8a5a00;
+  /* Terminal accents */
+  --prompt: #03744f;
+  --mint: #03744f;
+  --violet: #5b35c7;
+  --sky: #0a5f9c;
+  --rose: #b3261e;
+  --amber: #8a5a00;
 
-  /* Company accents — one per highlighted employer. */
-  --accent-1: #b0442a;
-  --accent-2: #2b7355;
-  --accent-3: #2a5fa3;
-  --accent-4: #8a5a00;
+  /* The surface a code block sits on. */
+  --terminal: #efebdf;
+  --terminal-chrome: #e4dfd0;
 }
 
 .dark {
-  --background: #0e1526;
-  --foreground: #e4eaf5;
+  --background: #0d1117;
+  --foreground: #e6edf3;
 
-  --card: #141d33;
-  --card-foreground: #e4eaf5;
+  --card: #161b22;
+  --card-foreground: #e6edf3;
 
-  --popover: #141d33;
-  --popover-foreground: #e4eaf5;
+  --popover: #161b22;
+  --popover-foreground: #e6edf3;
 
-  --primary: #f0be3f;
-  --primary-foreground: #1a1405;
+  --primary: #00e5a0;
+  --primary-foreground: #04120c;
 
-  --secondary: #1b2742;
-  --secondary-foreground: #e4eaf5;
+  --secondary: #21262d;
+  --secondary-foreground: #e6edf3;
 
-  --muted: #1b2742;
-  --muted-foreground: #9dabc6;
+  --muted: #21262d;
+  --muted-foreground: #8b949e;
 
-  --accent: #1b2742;
-  --accent-foreground: #e4eaf5;
+  --accent: #21262d;
+  --accent-foreground: #e6edf3;
 
-  --destructive: #ef8b84;
-  --destructive-foreground: #1a1405;
+  --destructive: #ff7b72;
+  --destructive-foreground: #04120c;
 
-  --border: #2e3c60;
-  --input: #2e3c60;
-  --ring: #f0be3f;
+  --border: #30363d;
+  --input: #30363d;
+  --ring: #00e5a0;
 
-  /* Brand */
-  --brand: #f0be3f;
-  --brand-contrast: #f0be3f;
-  --brand-sage: #a2a28b;
-  --highlight: #f0be3f;
+  /* Terminal accents */
+  --prompt: #00e5a0;
+  --mint: #00e5a0;
+  --violet: #a78bfa;
+  --sky: #38bdf8;
+  --rose: #ff7b72;
+  --amber: #e3b341;
 
-  /* Company accents — one per highlighted employer. */
-  --accent-1: #ff9276;
-  --accent-2: #63d6a3;
-  --accent-3: #7db4f7;
-  --accent-4: #f0be3f;
+  --terminal: #010409;
+  --terminal-chrome: #161b22;
 }
 
 @theme inline {
@@ -115,34 +116,35 @@
   --color-input: var(--input);
   --color-ring: var(--ring);
 
-  --color-brand: var(--brand);
-  --color-brand-contrast: var(--brand-contrast);
-  --color-brand-sage: var(--brand-sage);
-  --color-highlight: var(--highlight);
-  --color-accent-1: var(--accent-1);
-  --color-accent-2: var(--accent-2);
-  --color-accent-3: var(--accent-3);
-  --color-accent-4: var(--accent-4);
+  --color-prompt: var(--prompt);
+  --color-mint: var(--mint);
+  --color-violet: var(--violet);
+  --color-sky: var(--sky);
+  --color-rose: var(--rose);
+  --color-amber: var(--amber);
+  --color-terminal: var(--terminal);
+  --color-terminal-chrome: var(--terminal-chrome);
 
   --font-mono:
-    'JetBrains Mono', ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas,
-    monospace;
-  --font-display: 'Exo 2', 'JetBrains Mono', ui-monospace, monospace;
+    'JetBrains Mono Variable', 'JetBrains Mono', ui-monospace, SFMono-Regular,
+    'SF Mono', Menlo, Consolas, monospace;
+  --font-display: 'Exo 2', 'JetBrains Mono Variable', ui-monospace, monospace;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-lg: var(--radius);
-  --radius-xl: calc(var(--radius) + 4px);
+  --radius-sm: calc(var(--radius) - 2px);
+  --radius-md: var(--radius);
+  --radius-lg: calc(var(--radius) + 2px);
+  --radius-xl: calc(var(--radius) + 6px);
 }
 
 @layer base {
   * {
-    @apply border-border outline-ring/60;
+    @apply border-border;
   }
 
   html {
     scroll-behavior: smooth;
     color-scheme: light;
+    -webkit-text-size-adjust: 100%;
   }
 
   html.dark {
@@ -152,16 +154,37 @@
   body {
     @apply bg-background text-foreground font-mono antialiased;
     font-feature-settings: 'liga' 1, 'calt' 1;
+    font-variant-ligatures: contextual;
     text-rendering: optimizeLegibility;
+    overflow-wrap: break-word;
   }
 
   ::selection {
-    background-color: var(--brand-contrast);
-    color: #1a1405;
+    background-color: var(--mint);
+    color: var(--primary-foreground);
   }
 
   :focus-visible {
     @apply outline-ring outline-2 outline-offset-2;
+  }
+
+  /* The scanline the whole page sits under — a single hairline of mint at the
+     very top, echoing the boot sequence in the profile README. */
+  body::before {
+    content: '';
+    position: fixed;
+    inset-block-start: 0;
+    inset-inline: 0;
+    block-size: 2px;
+    background: linear-gradient(
+      90deg,
+      var(--mint) 0%,
+      var(--sky) 50%,
+      var(--violet) 100%
+    );
+    opacity: 0.9;
+    z-index: 50;
+    pointer-events: none;
   }
 }
 
@@ -176,5 +199,31 @@
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
+  }
+}
+
+/* The blinking block cursor used after the hero prompt. */
+@keyframes caret-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+.caret {
+  animation: caret-blink 1.1s steps(1) infinite;
+}
+
+/* Horizontal rails scroll without a visible bar on touch devices. */
+@utility scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+
+  &::-webkit-scrollbar {
+    display: none;
   }
 }

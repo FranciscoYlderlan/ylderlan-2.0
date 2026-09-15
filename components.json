@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema.json",
-  "style": "nova",
+  "style": "new-york-v4",
   "base": "base",
   "rsc": false,
   "tsx": true,
@@ -18,8 +18,5 @@
     "ui": "@/components/ui",
     "lib": "@/lib",
     "hooks": "@/hooks"
-  },
-  "registries": {
-    "@shadcn": "https://ui.shadcn.com/r/{name}.json"
   }
 }

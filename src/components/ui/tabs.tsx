@@ -7,7 +7,7 @@ function Tabs({ className, ...props }: ComponentProps<typeof BaseTabs.Root>) {
   return (
     <BaseTabs.Root
       data-slot="tabs"
-      className={cn('flex flex-col gap-4', className)}
+      className={cn('flex flex-col gap-3', className)}
       {...props}
     />
   )
@@ -17,18 +17,18 @@ function TabsList({ className, ...props }: ComponentProps<typeof BaseTabs.List>)
   return (
     <BaseTabs.List
       data-slot="tabs-list"
-      className={cn('relative flex', className)}
+      className={cn('relative flex items-stretch', className)}
       {...props}
     />
   )
 }
 
-function TabsTab({ className, ...props }: ComponentProps<typeof BaseTabs.Tab>) {
+function TabsTrigger({ className, ...props }: ComponentProps<typeof BaseTabs.Tab>) {
   return (
     <BaseTabs.Tab
-      data-slot="tabs-tab"
+      data-slot="tabs-trigger"
       className={cn(
-        'text-muted-foreground hover:text-foreground data-active:text-foreground data-active:bg-muted relative z-1 cursor-pointer rounded-md px-3 py-2 text-left text-sm whitespace-nowrap transition-colors outline-none select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
+        'text-muted-foreground hover:text-foreground data-active:text-foreground relative cursor-pointer rounded-sm px-3 py-2 text-left text-xs whitespace-nowrap transition-colors outline-none select-none focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring',
         className,
       )}
       {...props}
@@ -36,28 +36,14 @@ function TabsTab({ className, ...props }: ComponentProps<typeof BaseTabs.Tab>) {
   )
 }
 
-function TabsIndicator({
-  className,
-  ...props
-}: ComponentProps<typeof BaseTabs.Indicator>) {
-  return (
-    <BaseTabs.Indicator
-      data-slot="tabs-indicator"
-      renderBeforeHydration
-      className={cn('bg-muted absolute top-0 left-0 -z-1 rounded-md', className)}
-      {...props}
-    />
-  )
-}
-
-function TabsPanel({ className, ...props }: ComponentProps<typeof BaseTabs.Panel>) {
+function TabsContent({ className, ...props }: ComponentProps<typeof BaseTabs.Panel>) {
   return (
     <BaseTabs.Panel
-      data-slot="tabs-panel"
+      data-slot="tabs-content"
       className={cn('outline-none', className)}
       {...props}
     />
   )
 }
 
-export { Tabs, TabsList, TabsTab, TabsIndicator, TabsPanel }
+export { Tabs, TabsList, TabsTrigger, TabsContent }

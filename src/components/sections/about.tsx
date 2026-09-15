@@ -11,9 +11,9 @@ export function About() {
   }) as Translation['about']['paragraphs']
 
   return (
-    <Section id="about" title={t('about.title')}>
-      <div className="flex flex-col gap-8 sm:flex-row sm:items-start sm:gap-8">
-        <div className="text-muted-foreground flex flex-1 flex-col gap-4 text-sm leading-relaxed sm:text-[15px]">
+    <Section id="about" command={t('about.command')}>
+      <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:gap-7">
+        <div className="text-muted-foreground flex min-w-0 flex-1 flex-col gap-4 text-sm leading-relaxed">
           {paragraphs.map((paragraph, index) => (
             <p key={index}>
               <RichText>{paragraph}</RichText>
@@ -21,23 +21,26 @@ export function About() {
           ))}
         </div>
 
-        <figure className="mx-auto w-full max-w-[200px] shrink-0 sm:mx-0 sm:w-40 sm:max-w-none">
+        {/* Flexible portrait: never wider than its column, never taller than
+            it needs to be, and it shrinks with the viewport instead of
+            dominating the section on small screens. */}
+        <figure className="mx-auto w-[min(100%,13rem)] shrink-0 sm:mx-0 sm:w-[clamp(8rem,24vw,12rem)]">
           <picture>
             <source
               type="image/webp"
               srcSet="/ylderlan-offline-480.webp 480w, /ylderlan-offline-960.webp 960w"
-              sizes="(min-width: 640px) 160px, 200px"
+              sizes="(min-width: 640px) 12rem, 13rem"
             />
             <img
               src="/ylderlan-offline-480.jpg"
               srcSet="/ylderlan-offline-480.jpg 480w, /ylderlan-offline-960.jpg 960w"
-              sizes="(min-width: 640px) 160px, 200px"
+              sizes="(min-width: 640px) 12rem, 13rem"
               width={900}
               height={1600}
               alt={t('a11y.casualPhotoAlt')}
               loading="lazy"
               decoding="async"
-              className="border-border aspect-[9/13] w-full rounded-xl border object-cover"
+              className="border-border aspect-[4/5] w-full rounded-md border object-cover"
             />
           </picture>
         </figure>

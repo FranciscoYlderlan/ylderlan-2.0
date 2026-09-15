@@ -1,7 +1,12 @@
 import { Check, Languages } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
 
-import { Menu, MenuItem, MenuPopup, MenuTrigger } from '@/components/ui/menu'
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu'
 import {
   LANGUAGE_LABELS,
   SUPPORTED_LANGUAGES,
@@ -13,24 +18,24 @@ export function LanguageSwitcher() {
   const current = i18n.resolvedLanguage as SupportedLanguage
 
   return (
-    <Menu>
-      <MenuTrigger aria-label={t('a11y.changeLanguage')}>
+    <DropdownMenu>
+      <DropdownMenuTrigger aria-label={t('a11y.changeLanguage')}>
         <Languages aria-hidden="true" />
         <span className="uppercase">{current}</span>
-      </MenuTrigger>
-      <MenuPopup>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent>
         {SUPPORTED_LANGUAGES.map((language) => (
-          <MenuItem
+          <DropdownMenuItem
             key={language}
             onClick={() => void i18n.changeLanguage(language)}
           >
             <span>{LANGUAGE_LABELS[language]}</span>
             {language === current ? (
-              <Check className="text-highlight" aria-hidden="true" />
+              <Check className="text-mint" aria-hidden="true" />
             ) : null}
-          </MenuItem>
+          </DropdownMenuItem>
         ))}
-      </MenuPopup>
-    </Menu>
+      </DropdownMenuContent>
+    </DropdownMenu>
   )
 }

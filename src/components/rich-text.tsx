@@ -18,7 +18,7 @@ export function RichText({ children }: { children: string }) {
         }
 
         return (
-          <strong key={index} className="text-highlight font-semibold">
+          <strong key={index} className="text-foreground font-semibold">
             {match[1]}
           </strong>
         )

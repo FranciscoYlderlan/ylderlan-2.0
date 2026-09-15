@@ -6,9 +6,10 @@ export function Footer() {
   const { t } = useTranslation()
 
   return (
-    <footer className="border-border mt-6 border-t py-10">
-      <div className="text-muted-foreground flex flex-col items-center gap-3 text-center text-xs leading-relaxed">
-        <LogoBadge className="size-7" />
+    <footer className="border-border mt-4 border-t py-10">
+      <div className="text-muted-foreground flex flex-col items-center gap-3 text-center text-[11px] leading-relaxed">
+        <LogoBadge className="size-7 rounded-md" />
+        <p className="text-prompt">{t('footer.exit')}</p>
         <p>{t('footer.builtWith')}</p>
         <p>{t('footer.rights')}</p>
       </div>
