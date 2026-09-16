@@ -1,3 +1,4 @@
+import { Fragment } from 'react'
 import { useTranslation } from 'react-i18next'
 
 import { Section } from '@/components/layout/section'
@@ -5,26 +6,36 @@ import { Badge, type BadgeTone } from '@/components/terminal/badge'
 import { Marquee } from '@/components/terminal/marquee'
 import type { StackGroup, Translation } from '@/i18n/types'
 
-/** Each group keeps its own accent, so the rows stay readable as groupings. */
-const GROUP_TONES: Record<string, BadgeTone> = {
-  core: 'mint',
-  frontend: 'sky',
-  backend: 'violet',
-  data: 'amber',
-  platform: 'rose',
-  quality: 'muted',
-}
+/** One accent per group, cycling: eleven groups, six tones. */
+const TONES: BadgeTone[] = ['mint', 'sky', 'violet', 'amber', 'rose', 'muted']
 
-type StackEntry = { id: string; item: string; tone: BadgeTone }
+/**
+ * How the eleven groups of the CV are spread over the three rails, balanced so
+ * the tracks end up a similar length and scroll at a comparable rhythm.
+ */
+const ROWS: readonly (readonly string[])[] = [
+  ['languages', 'frontend', 'backend'],
+  ['frameworks', 'databases', 'testing'],
+  ['devops', 'cloud', 'ai', 'docs', 'engineering'],
+]
 
-function toEntries(groups: StackGroup[]): StackEntry[] {
-  return groups.flatMap((group) =>
-    group.items.map((item) => ({
-      id: `${group.id}-${item}`,
-      item,
-      tone: GROUP_TONES[group.id] ?? 'muted',
-    })),
-  )
+type Run = { id: string; label: string; tone: BadgeTone; items: string[] }
+
+function toRuns(groups: StackGroup[], ids: readonly string[]): Run[] {
+  return ids.flatMap((id) => {
+    const index = groups.findIndex((group) => group.id === id)
+    if (index === -1) return []
+
+    const group = groups[index]
+    return [
+      {
+        id: group.id,
+        label: group.label,
+        tone: TONES[index % TONES.length],
+        items: group.items,
+      },
+    ]
+  })
 }
 
 export function Stack() {
@@ -33,35 +44,47 @@ export function Stack() {
     returnObjects: true,
   }) as Translation['stack']['groups']
 
-  const half = Math.ceil(groups.length / 2)
-  const rows = [toEntries(groups.slice(0, half)), toEntries(groups.slice(half))]
-
   return (
     <Section id="stack" command={t('stack.command')}>
       <div className="flex flex-col gap-2">
-        {rows.map((row, index) => (
-          <Marquee
-            key={index}
-            reverse={index % 2 === 1}
-            durationSeconds={row.length * 2.6}
-          >
-            {row.map((entry) => (
-              <Badge key={entry.id} tone={entry.tone} className="shrink-0">
-                {entry.item}
-              </Badge>
-            ))}
-          </Marquee>
-        ))}
+        {ROWS.map((ids, index) => {
+          const runs = toRuns(groups, ids)
+          const length = runs.reduce((total, run) => total + run.items.length, 0)
+
+          return (
+            <Marquee
+              key={index}
+              reverse={index % 2 === 1}
+              durationSeconds={length * 2.4}
+            >
+              {runs.map((run) => (
+                <Fragment key={run.id}>
+                  {/* The label leads its run once, the way the CV lists it. */}
+                  <code className="text-muted-foreground mr-0.5 ml-4 shrink-0 self-center text-[11px] first:ml-0">
+                    {run.label}
+                  </code>
+                  {run.items.map((item) => (
+                    <Badge key={item} tone={run.tone} className="shrink-0">
+                      {item}
+                    </Badge>
+                  ))}
+                </Fragment>
+              ))}
+            </Marquee>
+          )
+        })}
       </div>
 
-      {/* The same content, static: what screen readers announce, and what
-          anyone with reduced motion turned on actually sees. */}
+      {/* The same grouping, static: what reduced motion shows and what screen
+          readers announce. It mirrors the CV row for row. */}
       <div className="marquee-fallback flex-col gap-2">
-        {groups.map((group) => (
+        {groups.map((group, index) => (
           <div key={group.id} className="flex flex-wrap items-baseline gap-1.5">
-            <code className="text-prompt mr-1 text-[11px]">{group.label}</code>
+            <code className="text-muted-foreground mr-1 text-[11px]">
+              {group.label}
+            </code>
             {group.items.map((item) => (
-              <Badge key={item} tone={GROUP_TONES[group.id] ?? 'muted'}>
+              <Badge key={item} tone={TONES[index % TONES.length]}>
                 {item}
               </Badge>
             ))}
@@ -76,13 +99,6 @@ export function Stack() {
           </li>
         ))}
       </ul>
-
-      <p className="border-violet/40 bg-violet/5 text-muted-foreground mt-3 flex flex-col gap-1.5 rounded-md border-l-2 py-2.5 pr-3 pl-3.5 text-[11px] leading-relaxed sm:flex-row sm:items-baseline sm:gap-3">
-        <code className="text-violet shrink-0 font-semibold">
-          {t('stack.aiLayerLabel')}
-        </code>
-        <span className="min-w-0">{t('stack.aiLayer')}</span>
-      </p>
     </Section>
   )
 }

@@ -74,8 +74,6 @@ export type Translation = {
   stack: {
     command: string
     groups: StackGroup[]
-    aiLayerLabel: string
-    aiLayer: string
   }
   social: {
     command: string
