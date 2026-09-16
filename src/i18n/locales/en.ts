@@ -117,7 +117,7 @@ export const en: Translation = {
         location: 'Remote · Recife, PE',
         bullets: [
           'Grew job supply on our site by **900%**, measured in opportunities available per day, by restructuring the scripts behind it.',
-          "Centralised the team's operational needs into one internal system, cutting third-party tooling costs by **30%**.",
+          "Centralized the team's operational needs into one internal system, cutting third-party tooling costs by **30%**.",
           'Removed **100%** of the manual tax paperwork by automating NF, DAS and DARF issuing.',
         ],
         stack: [
@@ -185,7 +185,7 @@ export const en: Translation = {
         location: 'On-site · São Luís, MA',
         bullets: [
           'Cut Big Data preprocessing time by **80%**, three hours and forty minutes less, with an ETL solution I evaluated and recommended.',
-          'Built Big Data solutions with optimised algorithms, improving processing efficiency by **25%**.',
+          'Built Big Data solutions with optimized algorithms, improving processing efficiency by **25%**.',
           'Contributed to **100%** data integrity, through security and governance over the ETL systems.',
         ],
         stack: [
