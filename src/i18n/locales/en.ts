@@ -231,7 +231,7 @@ export const en: Translation = {
         period: "APR 2023 → JAN 2025",
         location: "Remote · Florianópolis, SC",
         bullets: [
-          "I contributed to the architecture of Lab Yes!, which helped recruit 100% of the volunteers and served as the foundation for their professional development and the building of the software.",
+          "I contributed to the architecture of Lab Yes!, which helped recruit **100%** of the volunteers and served as the foundation for their professional development and the building of the software.",
           "I proposed and rolled out a React component library tailored to the Figma design, avoiding the need to rebuild components for each screen and speeding up development with visual consistency.",
           "Together with the team, I suggested and helped implement agile practices with Scrum and Kanban, optimizing the workflow and increasing team satisfaction.",
         ],

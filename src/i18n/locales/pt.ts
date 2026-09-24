@@ -235,7 +235,7 @@ export const pt: Translation = {
         period: "ABR 2023 → JAN 2025",
         location: "Remoto · Florianópolis, SC",
         bullets: [
-          "Contribuí para a arquitetura do Lab Yes!, que ajudou na captação de 100% dos voluntários e serviu como base para o desenvolvimento profissional deles e a construção dos softwares.",
+          "Contribuí para a arquitetura do Lab Yes!, que ajudou na captação de **100%** dos voluntários e serviu como base para o desenvolvimento profissional deles e a construção dos softwares.",
           "Propus e implantei uma biblioteca de componentes React ajustada ao design do Figma, evitando a recriação de componentes a cada tela e acelerando o desenvolvimento com consistência visual.",
           "Junto à equipe, sugeri e ajudei a implantar práticas ágeis com Scrum e Kanban, otimizando o fluxo de trabalho e aumentando a satisfação do time.",
         ],
